@@ -1,6 +1,7 @@
 package br.com.heroassociation;
 
 import br.com.heroassociation.view.KeepArma;
+import br.com.heroassociation.view.KeepBatalha;
 import br.com.heroassociation.view.KeepHeroi;
 import br.com.heroassociation.view.KeepUsuario;
 import javax.swing.*;
@@ -34,7 +35,8 @@ public class Teste {
                 Menu();
                 break;
             case 4:
-                //KeepBatalha.menu();
+                KeepBatalha.Menu();
+                Menu();
                 break;
             case 5:
                 int sair = JOptionPane.showConfirmDialog(null,"Deseja Sair?");
