@@ -70,18 +70,34 @@ public class Arma {
         this.heroiId = heroiId;
     }
 
-
     @Override
     public String toString() {
-        return "Arma{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", tipo='" + tipo + '\'' +
-                ", heroi='" + heroi + '\'' +
-                ", heroiId='" + heroiId + '\'' +
-                //", heroi=" + heroi.getNome() +
-                //", heroiId=" + heroi.getId() +
-                '}';
+        String retorno = "";
+        String msgHeroi = "null" ;
+        String heroiNull = "null";
+        String msg;
+        if(this.heroi != null) {
+            msgHeroi = "Arma{" +
+                    "id=" + id +
+                    ", nome='" + nome + '\'' +
+                    ", tipo='" + tipo + '\'' +
+                    ", heroi=" + heroi.getNome() +
+                    ", heroiId=" + heroi.getId() +
+                    '}';
+            retorno = msgHeroi;
+        }
+        if(this.heroi == null){
+            heroiNull = "Arma{" +
+                    "id=" + id +
+                    ", nome='" + nome + '\'' +
+                    ", tipo='" + tipo + '\'' +
+                    ", heroi='" + heroi + '\'' +
+                    ", heroiId='" + heroiId + '\'' +
+                    '}';
+            retorno = heroiNull;
+        }
+
+        return retorno;
     }
 
 }

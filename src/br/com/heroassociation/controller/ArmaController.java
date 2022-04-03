@@ -1,7 +1,6 @@
 package br.com.heroassociation.controller;
 
 import br.com.heroassociation.model.bean.Arma;
-import br.com.heroassociation.model.bean.Heroi;
 import br.com.heroassociation.model.dao.DaoArma;
 import java.sql.SQLException;
 

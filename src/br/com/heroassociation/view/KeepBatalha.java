@@ -2,7 +2,6 @@ package br.com.heroassociation.view;
 
 import br.com.heroassociation.controller.BatalhaController;
 import br.com.heroassociation.model.bean.Batalha;
-
 import javax.swing.*;
 import java.sql.SQLException;
 

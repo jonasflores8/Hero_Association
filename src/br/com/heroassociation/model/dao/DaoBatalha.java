@@ -2,7 +2,6 @@ package br.com.heroassociation.model.dao;
 
 import br.com.heroassociation.model.bean.Batalha;
 import br.com.heroassociation.util.Conexao;
-
 import java.sql.*;
 
 public class DaoBatalha {
@@ -15,12 +14,12 @@ public class DaoBatalha {
 
     public Batalha Insert(Batalha batalha) {
         try {
-            String sql = "INSERT INTO batalhas" + " (nome, descricao, duracao)" + " values (?,?,?)";
+            String sql = "insert into batalhas" + " (nome, descricao, duracao)" + " values (?,?,?)";
 
             PreparedStatement statement = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
-            statement.setString(1,batalha.getNome());
-            statement.setString(2,batalha.getDescricao());
+            statement.setString(1, batalha.getNome());
+            statement.setString(2, batalha.getDescricao());
             statement.setFloat(3, batalha.getDuracao());
 
             statement.executeUpdate();
@@ -39,7 +38,6 @@ public class DaoBatalha {
     public Batalha Select(Batalha batalha) {
         try {
             String sql = "SELECT * FROM batalhas WHERE id = ?";
-
             PreparedStatement statement = this.con.prepareStatement(sql);
 
             statement.setInt(1,batalha.getId());
@@ -53,8 +51,8 @@ public class DaoBatalha {
                         rs.getString(3),
                         rs.getFloat(4));
             }
-            statement.close();
             batalha = retorno;
+            statement.close();
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -63,7 +61,8 @@ public class DaoBatalha {
 
     public Batalha Update(Batalha batalha) {
         try{
-            String sql = "UPDATE batalhas SET nome = ?, descricao = ?, duracao = ? WHERE id = ?";
+            String sql = "UPDATE batalhas SET nome = ?, descricao = ?, " +
+                    "duracao = ?  WHERE id = ?;";
 
             PreparedStatement statement = con.prepareStatement(sql);
 
@@ -96,6 +95,5 @@ public class DaoBatalha {
         }
         return batalha;
     }
-
 
 }

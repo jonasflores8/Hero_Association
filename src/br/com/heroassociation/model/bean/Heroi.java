@@ -5,8 +5,6 @@ public class Heroi {
     private int id;
     private String nome;
     private String identidade;
-    //private List<Arma> armas;
-    //private List<HeroiBatalha> heroiBatalhas;
 
     public Heroi(int id) {
         this.id = id;
@@ -53,29 +51,13 @@ public class Heroi {
     public void setIdentidade() {
         this.identidade = identidade;
     }
-/*
-    public List<Arma> getArmas() {
-        return armas;
-    }
-
-    public void setArmas(List<Arma> armas) {
-        this.armas = armas;
-    }
-
-    public List<HeroiBatalha> getHeroiBatalhas() {
-        return heroiBatalhas;
-    }
-
-    public void setHeroiBatalhas(List<HeroiBatalha> heroiBatalhas) {
-        this.heroiBatalhas = heroiBatalhas;
-    }*/
 
     @Override
     public String toString() {
         return "Heroi{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
-                ", identidade=" + identidade + '\'' +
+                ", identidade='" + identidade + '\'' +
                 '}';
     }
 
