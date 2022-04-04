@@ -38,7 +38,7 @@ public class DaoHeroiBatalha {
 
     public HeroiBatalha Select(HeroiBatalha HeroiBatalha) {
         try {
-            String sql = "select hb.id, h.nome as 'Heroi', b.nome as 'Batalha', b.descricao " +
+            String sql = "select hb.id, h.nome as 'Heroi', b.nome as 'Batalha', b.descricao as 'Descrção' " +
                     "from heroisbatalhas hb " +
                     "inner join herois h on hb.heroiId = h.id " +
                     "inner join batalhas b on hb.batalhaId = b.id " +

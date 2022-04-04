@@ -71,68 +71,28 @@ public class HeroiBatalha {
 
     @Override
     public String toString() {
-        return "HeroiBatalha{" +
-                "id=" + id +
-                ", heroiId=" + heroiId +
-                ", batalhaId=" + batalhaId +
-                ", heroi=" + heroi +
-                ", batalha=" + batalha +
-                '}';
-    }
-
-    /*
-    @Override
-    public String toString() {
-        String retorno;
-        String heroiB = "null";
-        String heroiBNull = "null";
-        if(this.heroi != null){
-            heroiB = "HeroiBatalha{" +
+        String retorno = "";
+        String heroiHb = "null";
+        String hbNull = "null";
+        if(this.heroi == null & this.batalha == null){
+            hbNull = "HeroiBatalha{" +
                     "id=" + id +
                     ", heroiId=" + heroiId +
                     ", batalhaId=" + batalhaId +
                     ", heroi=" + heroi +
                     ", batalha=" + batalha +
                     '}';
+            retorno = hbNull;
         }
-        return "HeroiBatalha{" +
-                "id=" + id +
-                ", heroiId=" + heroiId +
-                ", batalhaId=" + batalhaId +
-                ", heroi=" + heroi +
-                ", batalha=" + batalha +
-                '}';
-    }
-
-    @Override
-    public String toString() {
-        String retorno = "";
-        String msgHer = "null" ;
-        String heroiNull = "null";
-        String msg;
-        if(this.heroi != null) {
-            msgHeroi = "Arma{" +
+        if (this.heroi != null & this.batalha != null){
+            heroiHb = "HeroiBatalha{" +
                     "id=" + id +
-                    ", nome='" + nome + '\'' +
-                    ", tipo='" + tipo + '\'' +
                     ", heroi=" + heroi.getNome() +
-                    ", heroiId=" + heroi.getId() +
+                    ", batalha=" + batalha.getNome() + ", descrição =" + batalha.getDescricao() +
                     '}';
-            retorno = msgHeroi;
+            retorno = heroiHb;
         }
-        if(this.heroi == null){
-            heroiNull = "Arma{" +
-                    "id=" + id +
-                    ", nome='" + nome + '\'' +
-                    ", tipo='" + tipo + '\'' +
-                    ", heroi='" + heroi + '\'' +
-                    ", heroiId='" + heroiId + '\'' +
-                    '}';
-            retorno = heroiNull;
-        }
-
         return retorno;
     }
 
-*/
 }

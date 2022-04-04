@@ -1,7 +1,6 @@
 package br.com.heroassociation;
 
 import br.com.heroassociation.view.*;
-
 import javax.swing.*;
 import java.sql.SQLException;
 
