@@ -32,6 +32,10 @@ public class Arma {
         this.heroiId = heroiId;
     }
 
+    public Arma() {
+
+    }
+
     public Heroi getHeroi() {
         return heroi;
     }

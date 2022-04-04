@@ -4,6 +4,7 @@ import br.com.heroassociation.controller.ArmaController;
 import br.com.heroassociation.model.bean.Arma;
 import javax.swing.*;
 import java.sql.SQLException;
+import java.util.List;
 
 public class KeepArma {
 
@@ -47,9 +48,18 @@ public class KeepArma {
         JOptionPane.showMessageDialog(null, aSaida.toString());
     }
 
+    public static void Listar() throws SQLException, ClassNotFoundException {
+        Arma aEntrada = new Arma();
+        contA = new ArmaController();
+        List<Arma> listaASaida = contA.Listar(aEntrada);
+        for(Arma a : listaASaida) {
+            JOptionPane.showMessageDialog(null, a.toString());
+        }
+    }
+
     public static void Menu() throws SQLException, ClassNotFoundException {
         int op = Integer.parseInt(JOptionPane.showInputDialog("1 - Inserir " +
-                "\n 2 - Buscar \n 3 - Alterar \n 4 - Excluir \n 5 - Sair "));
+                "\n 2 - Buscar \n 3 - Alterar \n 4 - Excluir \n 5 - Listar \n 6 - Sair "));
         switch (op) {
             case 1:
                 Insert();
@@ -64,6 +74,9 @@ public class KeepArma {
                 Delete();
                 break;
             case 5:
+                Listar();
+                break;
+            case 6:
                 int sair = JOptionPane.showConfirmDialog(null,"Deseja Sair?");
                 if(sair > 0) Menu();
                 break;

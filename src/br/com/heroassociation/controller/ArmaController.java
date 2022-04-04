@@ -3,6 +3,7 @@ package br.com.heroassociation.controller;
 import br.com.heroassociation.model.bean.Arma;
 import br.com.heroassociation.model.dao.DaoArma;
 import java.sql.SQLException;
+import java.util.List;
 
 public class ArmaController {
 
@@ -23,5 +24,9 @@ public class ArmaController {
     public Arma Update(Arma arma) { return daoA.Update(arma); }
 
     public Arma Delete(Arma arma) { return daoA.Delete(arma); }
+
+    public List<Arma> Listar (Arma arma) throws SQLException, ClassNotFoundException {
+        return daoA.Listar(arma);
+    }
 
 }

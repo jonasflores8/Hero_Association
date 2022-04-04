@@ -4,6 +4,7 @@ import br.com.heroassociation.controller.BatalhaController;
 import br.com.heroassociation.model.bean.Batalha;
 import javax.swing.*;
 import java.sql.SQLException;
+import java.util.List;
 
 public class KeepBatalha {
 
@@ -47,9 +48,18 @@ public class KeepBatalha {
         JOptionPane.showMessageDialog(null, bSaida.toString());
     }
 
+    public static void Listar() throws SQLException, ClassNotFoundException {
+        Batalha bEntrada = new Batalha();
+        contB = new BatalhaController();
+        List<Batalha> listaBSaida = contB.Listar(bEntrada);
+        for(Batalha b : listaBSaida) {
+            JOptionPane.showMessageDialog(null, b.toString());
+        }
+    }
+
     public static void Menu() throws SQLException, ClassNotFoundException {
         int op = Integer.parseInt(JOptionPane.showInputDialog("1 - Inserir " +
-                "\n 2 - Buscar \n 3 - Alterar \n 4 - Excluir \n 5 - Sair "));
+                "\n 2 - Buscar \n 3 - Alterar \n 4 - Excluir \n 5 - Listar \n 6 - Sair "));
         switch (op) {
             case 1:
                 Insert();
@@ -64,6 +74,9 @@ public class KeepBatalha {
                 Delete();
                 break;
             case 5:
+                Listar();
+                break;
+            case 6:
                 int sair = JOptionPane.showConfirmDialog(null,"Deseja Sair?");
                 if(sair > 0) Menu();
                 break;

@@ -30,6 +30,10 @@ public class Heroi {
         this.id = id;
     }
 
+    public Heroi() {
+
+    }
+
     public int getId() {
         return id;
     }

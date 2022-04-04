@@ -4,6 +4,8 @@ import br.com.heroassociation.model.bean.Arma;
 import br.com.heroassociation.model.bean.Heroi;
 import br.com.heroassociation.util.Conexao;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DaoArma {
 
@@ -98,6 +100,28 @@ public class DaoArma {
             e.printStackTrace();
         }
         return arma;
+    }
+
+    public List<Arma> Listar(Arma arma) throws SQLException {
+
+        List<Arma> armas = new ArrayList<>();
+
+        String sql = "select * from armas";
+
+        PreparedStatement statement = this.con.prepareStatement(sql);
+        ResultSet rs = statement.executeQuery();
+        while (rs.next()) {
+            Arma a = new Arma(
+                    rs.getInt(1),
+                    rs.getString(2),
+                    rs.getString(3),
+                    rs.getInt(4));
+
+            armas.add(a);
+        }
+        rs.close();
+        statement.close();
+        return armas;
     }
 
 }

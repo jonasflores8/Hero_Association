@@ -8,6 +8,10 @@ public class HeroiBatalha {
     private Heroi heroi;
     private Batalha batalha;
 
+    public HeroiBatalha(){
+
+    }
+
     public HeroiBatalha(int heroiId, int batalhaId) {
         this.heroiId = heroiId;
         this.batalhaId = batalhaId;

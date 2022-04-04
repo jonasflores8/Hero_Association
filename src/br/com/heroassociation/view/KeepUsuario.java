@@ -1,6 +1,9 @@
 package br.com.heroassociation.view;
 
 import javax.swing.JOptionPane;
+
+import br.com.heroassociation.controller.HeroiController;
+import br.com.heroassociation.model.bean.Heroi;
 import br.com.heroassociation.model.bean.Usuario;
 import br.com.heroassociation.controller.UsuarioController;
 import java.sql.SQLException;
@@ -49,11 +52,12 @@ public class KeepUsuario {
     }
 
     public static void Listar () throws SQLException, ClassNotFoundException {
-        String login = JOptionPane.showInputDialog("Login");
-        Usuario usuEntrada = new Usuario(login);
+        Usuario usuEntrada = new Usuario();
         UsuarioController contUsu = new UsuarioController();
         List<Usuario> lista = contUsu.Listar(usuEntrada);
-        JOptionPane.showMessageDialog(null,"" + lista.get(0).getLogin());
+        for (Usuario usu: lista){
+            JOptionPane.showMessageDialog(null, usu);
+        }
     }
 
     public static boolean Validar () throws SQLException, ClassNotFoundException {

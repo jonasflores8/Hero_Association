@@ -29,6 +29,10 @@ public class Batalha {
         this.descricao = descricao;
     }
 
+    public Batalha() {
+
+    }
+
     public int getId() {
         return id;
     }

@@ -2,6 +2,8 @@ package br.com.heroassociation.model.dao;
 
 import br.com.heroassociation.model.bean.Usuario;
 import br.com.heroassociation.util.Conexao;
+
+import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -93,14 +95,10 @@ public class DaoUsuario {
 
         List<Usuario> usus = new ArrayList<>();
 
-        String sql = "select * from usuarios where login like ?";
+        String sql = "select * from usuarios";
 
         PreparedStatement stmt = this.c.prepareStatement(sql);
-
-        stmt.setString(1,"%" + usuEnt.getLogin() + "%");
-
         ResultSet rs = stmt.executeQuery();
-
         while (rs.next()) {
             Usuario usu = new Usuario(
                     rs.getInt(1),
@@ -114,31 +112,35 @@ public class DaoUsuario {
         rs.close();
         stmt.close();
         return usus;
-
     }
 
-    public Usuario Validar(Usuario usu) throws SQLException {
-        String sql = "select * from usuarios WHERE login = ? AND senha = ?";
+    public Usuario Validar(Usuario usu) {
+        try{
+            String sql = "select * from usuarios WHERE login = ? AND senha = ?";
 
-        PreparedStatement stmt = this.c.prepareStatement(sql);
+            PreparedStatement stmt = this.c.prepareStatement(sql);
 
-        stmt.setString(1,usu.getLogin());
-        stmt.setString(2,usu.getSenha());
+            stmt.setString(1,usu.getLogin());
+            stmt.setString(2,usu.getSenha());
 
-        ResultSet rs = stmt.executeQuery();
+            ResultSet rs = stmt.executeQuery();
 
-        Usuario usuSaida = null;
-        while (rs.next()) {
-            usuSaida = new Usuario(
-                    rs.getInt(1),
-                    rs.getString(2),
-                    rs.getString(3),
-                    rs.getString(4),
-                    rs.getString(5));
+            Usuario usuSaida = null;
+            while (rs.next()) {
+                usuSaida = new Usuario(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5));
+            }
+            stmt.close();
+            usu = usuSaida;
+            JOptionPane.showMessageDialog(null, "Usuario online");
+        } catch (SQLException e){
+            e.printStackTrace();
         }
-        stmt.close();
-        System.out.println("Usuario: " + usuSaida.toString());
-        return usuSaida;
+        return usu;
     }
 
 }

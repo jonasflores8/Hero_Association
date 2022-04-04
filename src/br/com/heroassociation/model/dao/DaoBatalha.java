@@ -3,6 +3,8 @@ package br.com.heroassociation.model.dao;
 import br.com.heroassociation.model.bean.Batalha;
 import br.com.heroassociation.util.Conexao;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DaoBatalha {
 
@@ -94,6 +96,28 @@ public class DaoBatalha {
             e.printStackTrace();
         }
         return batalha;
+    }
+
+    public List<Batalha> Listar(Batalha batalha) throws SQLException {
+
+        List<Batalha> batalhas = new ArrayList<>();
+
+        String sql = "select * from batalhas";
+
+        PreparedStatement statement = this.con.prepareStatement(sql);
+        ResultSet rs = statement.executeQuery();
+        while (rs.next()) {
+            Batalha b = new Batalha(
+                    rs.getInt(1),
+                    rs.getString(2),
+                    rs.getString(3),
+                    rs.getFloat(4));
+
+            batalhas.add(b);
+        }
+        rs.close();
+        statement.close();
+        return batalhas;
     }
 
 }
