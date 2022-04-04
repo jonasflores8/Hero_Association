@@ -24,6 +24,11 @@ public class Batalha {
         this.duracao = duracao;
     }
 
+    public Batalha(String nome, String descricao) {
+        this.nome = nome;
+        this.descricao = descricao;
+    }
+
     public int getId() {
         return id;
     }
