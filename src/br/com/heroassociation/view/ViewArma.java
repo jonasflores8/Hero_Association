@@ -6,14 +6,14 @@ import javax.swing.*;
 import java.sql.SQLException;
 import java.util.List;
 
-public class KeepArma {
+public class ViewArma {
 
     static ArmaController contA;
 
     public static void Insert() throws SQLException, ClassNotFoundException {
-        String nome = JOptionPane.showInputDialog("Nome da arma");
-        String tipo = JOptionPane.showInputDialog("Tipo de arma");
-        int heroiId = Integer.parseInt(JOptionPane.showInputDialog("Id do heroi"));
+        String nome = JOptionPane.showInputDialog("Nome da Arma");
+        String tipo = JOptionPane.showInputDialog("Tipo de Arma");
+        int heroiId = Integer.parseInt(JOptionPane.showInputDialog("Id do Heroi"));
 
         Arma arma = new Arma(nome,tipo,heroiId);
         contA = new ArmaController();
@@ -22,7 +22,8 @@ public class KeepArma {
     }
 
     public static void Select() throws SQLException, ClassNotFoundException {
-            int id = Integer.parseInt(JOptionPane.showInputDialog("Id"));
+            int id = Integer.parseInt(JOptionPane.showInputDialog("Id da Arma"));
+
             Arma aEntrada = new Arma(id);
             contA = new ArmaController();
             Arma aSaida = contA.Select(aEntrada);
@@ -30,10 +31,11 @@ public class KeepArma {
     }
 
     public static void Update() throws SQLException, ClassNotFoundException {
-        int id = Integer.parseInt(JOptionPane.showInputDialog("id"));
-        String nome = JOptionPane.showInputDialog("Nome");
-        String tipo = JOptionPane.showInputDialog("Tipo");
+        int id = Integer.parseInt(JOptionPane.showInputDialog("Id da Arma"));
+        String nome = JOptionPane.showInputDialog("Nome da Arma");
+        String tipo = JOptionPane.showInputDialog("Tipo de Arma");
         int heroiId = Integer.parseInt(JOptionPane.showInputDialog("Id do Heroi"));
+
         Arma aEntrada = new Arma(id, nome, tipo, heroiId);
         ArmaController contA = new ArmaController();
         Arma aSaida = contA.Update(aEntrada);
@@ -41,7 +43,8 @@ public class KeepArma {
     }
 
     public static void Delete() throws SQLException, ClassNotFoundException {
-        int id = Integer.parseInt(JOptionPane.showInputDialog("id"));
+        int id = Integer.parseInt(JOptionPane.showInputDialog("Id da Arma"));
+
         Arma aEntrada = new Arma(id);
         contA = new ArmaController();
         Arma aSaida = contA.Delete(aEntrada);

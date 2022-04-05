@@ -8,7 +8,7 @@ public class Teste {
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
 
-        if(KeepUsuario.Validar()) {
+        if(ViewUsuario.Validar()) {
             Menu();
         } else {
             JOptionPane.showMessageDialog(null,"Usuario Inválido!");
@@ -21,23 +21,23 @@ public class Teste {
                 "\n 4 - Batalha \n 5 - HeroiBatalha \n 6 - Sair"));
         switch (op) {
             case 1:
-                KeepUsuario.Menu();
+                ViewUsuario.Menu();
                 Menu();
                 break;
             case 2:
-                KeepHeroi.Menu();
+                ViewHeroi.Menu();
                 Menu();
                 break;
             case 3:
-                KeepArma.Menu();
+                ViewArma.Menu();
                 Menu();
                 break;
             case 4:
-                KeepBatalha.Menu();
+                ViewBatalha.Menu();
                 Menu();
                 break;
             case 5:
-                KeepHeroiBatalha.Menu();
+                ViewHeroiBatalha.Menu();
                 Menu();
                 break;
             case 6:

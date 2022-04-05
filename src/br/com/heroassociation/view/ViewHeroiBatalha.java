@@ -6,13 +6,14 @@ import javax.swing.*;
 import java.sql.SQLException;
 import java.util.List;
 
-public class KeepHeroiBatalha {
+public class ViewHeroiBatalha {
 
     public static HeroiBatalhaController contHb;
 
     public static void Insert () throws SQLException, ClassNotFoundException {
         int heroiId = Integer.parseInt(JOptionPane.showInputDialog("Id do Heroi"));
         int batalhaId = Integer.parseInt(JOptionPane.showInputDialog("Id da Batalha"));
+
         HeroiBatalha HeroiBatalha = new HeroiBatalha(heroiId, batalhaId);
         contHb = new HeroiBatalhaController();
         HeroiBatalha HbSaida = contHb.Insert(HeroiBatalha);
@@ -21,6 +22,7 @@ public class KeepHeroiBatalha {
 
     public static void Select() throws SQLException, ClassNotFoundException {
         int id = Integer.parseInt(JOptionPane.showInputDialog("Id"));
+
         HeroiBatalha HbEntrada = new HeroiBatalha(id);
         contHb = new HeroiBatalhaController();
         HeroiBatalha HbSaida = contHb.Select(HbEntrada);
@@ -28,9 +30,10 @@ public class KeepHeroiBatalha {
     }
 
     public static void Update() throws SQLException, ClassNotFoundException {
-        int id = Integer.parseInt(JOptionPane.showInputDialog("id"));
-        int heroiId = Integer.parseInt(JOptionPane.showInputDialog("id do heroi"));
-        int batalhaId = Integer.parseInt(JOptionPane.showInputDialog("id da Batalha"));
+        int id = Integer.parseInt(JOptionPane.showInputDialog("Id"));
+        int heroiId = Integer.parseInt(JOptionPane.showInputDialog("Id do heroi"));
+        int batalhaId = Integer.parseInt(JOptionPane.showInputDialog("Id da Batalha"));
+
         HeroiBatalha HbEntrada = new HeroiBatalha(id, heroiId, batalhaId);
         contHb = new HeroiBatalhaController();
         HeroiBatalha HbSaida = contHb.Update(HbEntrada);
@@ -38,7 +41,8 @@ public class KeepHeroiBatalha {
     }
 
     public static void Delete() throws SQLException, ClassNotFoundException {
-        int id = Integer.parseInt(JOptionPane.showInputDialog("id"));
+        int id = Integer.parseInt(JOptionPane.showInputDialog("Id"));
+
         HeroiBatalha HbEntrada = new HeroiBatalha(id);
         contHb = new HeroiBatalhaController();
         HeroiBatalha HbSaida = contHb.Delete(HbEntrada);

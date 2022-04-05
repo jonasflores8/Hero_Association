@@ -106,7 +106,9 @@ public class DaoArma {
 
         List<Arma> armas = new ArrayList<>();
 
-        String sql = "select * from armas";
+        String sql = "select a.id, a.nome, a.tipo, herois.nome, herois.id " +
+                "from armas a " +
+                "inner join herois on a.heroiId = herois.id";
 
         PreparedStatement statement = this.con.prepareStatement(sql);
         ResultSet rs = statement.executeQuery();
@@ -115,7 +117,7 @@ public class DaoArma {
                     rs.getInt(1),
                     rs.getString(2),
                     rs.getString(3),
-                    rs.getInt(4));
+                    new Heroi(rs.getString(4), rs.getInt(5)));
 
             armas.add(a);
         }

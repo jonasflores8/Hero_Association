@@ -6,14 +6,14 @@ import javax.swing.*;
 import java.sql.SQLException;
 import java.util.List;
 
-public class KeepBatalha {
+public class ViewBatalha {
 
     public static BatalhaController contB;
 
     public static void Insert () throws SQLException, ClassNotFoundException {
-        String nome = JOptionPane.showInputDialog("Nome");
+        String nome = JOptionPane.showInputDialog("Nome da Batalha");
         String descricao = JOptionPane.showInputDialog("Descrição");
-        float duracao = Float.parseFloat(JOptionPane.showInputDialog("Duração da batalha"));
+        float duracao = Float.parseFloat(JOptionPane.showInputDialog("Duração da Batalha"));
 
         Batalha Batalha = new Batalha(nome, descricao, duracao);
         contB = new BatalhaController();
@@ -22,7 +22,8 @@ public class KeepBatalha {
     }
 
     public static void Select() throws SQLException, ClassNotFoundException {
-        int id = Integer.parseInt(JOptionPane.showInputDialog("Id"));
+        int id = Integer.parseInt(JOptionPane.showInputDialog("Id da Batalha"));
+
         Batalha bEntrada = new Batalha(id);
         contB = new BatalhaController();
         Batalha bSaida = contB.Select(bEntrada);
@@ -30,10 +31,11 @@ public class KeepBatalha {
     }
 
     public static void Update() throws SQLException, ClassNotFoundException {
-        int id = Integer.parseInt(JOptionPane.showInputDialog("id"));
-        String nome = JOptionPane.showInputDialog("Nome");
+        int id = Integer.parseInt(JOptionPane.showInputDialog("Id da Batalha"));
+        String nome = JOptionPane.showInputDialog("Nome da Batalha");
         String descricao = JOptionPane.showInputDialog("Descricao");
-        float duracao = Float.parseFloat(JOptionPane.showInputDialog("Duracao da batalha"));
+        float duracao = Float.parseFloat(JOptionPane.showInputDialog("Duração da Batalha"));
+
         Batalha bEntrada = new Batalha(id, nome, descricao, duracao);
         contB = new BatalhaController();
         Batalha bSaida = contB.Update(bEntrada);
@@ -41,7 +43,8 @@ public class KeepBatalha {
     }
 
     public static void Delete() throws SQLException, ClassNotFoundException {
-        int id = Integer.parseInt(JOptionPane.showInputDialog("id"));
+        int id = Integer.parseInt(JOptionPane.showInputDialog("Id da Batalha"));
+
         Batalha bEntrada = new Batalha(id);
         contB = new BatalhaController();
         Batalha bSaida = contB.Delete(bEntrada);

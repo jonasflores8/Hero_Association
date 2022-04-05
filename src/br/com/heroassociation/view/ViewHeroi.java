@@ -6,12 +6,12 @@ import javax.swing.*;
 import java.sql.SQLException;
 import java.util.List;
 
-public class KeepHeroi {
+public class ViewHeroi {
 
     public static HeroiController contH;
 
     public static void Insert () throws SQLException, ClassNotFoundException {
-        String nome = JOptionPane.showInputDialog("Nome do heroi");
+        String nome = JOptionPane.showInputDialog("Nome do Heroi");
         String identidade = JOptionPane.showInputDialog("Identidade Secreta");
 
         Heroi heroi = new Heroi(nome, identidade);
@@ -21,7 +21,8 @@ public class KeepHeroi {
     }
 
     public static void Select() throws SQLException, ClassNotFoundException {
-        int id = Integer.parseInt(JOptionPane.showInputDialog("Id"));
+        int id = Integer.parseInt(JOptionPane.showInputDialog("Id do Heroi"));
+
         Heroi hEntrada = new Heroi(id);
         contH = new HeroiController();
         Heroi hSaida = contH.Select(hEntrada);
@@ -29,9 +30,10 @@ public class KeepHeroi {
     }
 
     public static void Update() throws SQLException, ClassNotFoundException {
-        int id = Integer.parseInt(JOptionPane.showInputDialog("id"));
-        String nome = JOptionPane.showInputDialog("Nome");
-        String identidade = JOptionPane.showInputDialog("Identidade");
+        int id = Integer.parseInt(JOptionPane.showInputDialog("Id do Heroi"));
+        String nome = JOptionPane.showInputDialog("Nome do Heroi");
+        String identidade = JOptionPane.showInputDialog("Identidade Secreta");
+
         Heroi hEntrada = new Heroi(id, nome, identidade);
         HeroiController contH = new HeroiController();
         Heroi hSaida = contH.Update(hEntrada);
@@ -39,7 +41,8 @@ public class KeepHeroi {
     }
 
     public static void Delete() throws SQLException, ClassNotFoundException {
-        int id = Integer.parseInt(JOptionPane.showInputDialog("id"));
+        int id = Integer.parseInt(JOptionPane.showInputDialog("Id do Heroi"));
+
         Heroi hEntrada = new Heroi(id);
         contH = new HeroiController();
         Heroi hSaida = contH.Delete(hEntrada);
