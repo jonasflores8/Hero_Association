@@ -29,7 +29,7 @@ public class UsuarioController {
         return daoUsu.Delete(u);
     }
 
-    public List<Usuario> Listar (Usuario u) throws SQLException, ClassNotFoundException {
+    public List<Usuario> Listar (Usuario u) {
         return daoUsu.Listar(u);
     }
 

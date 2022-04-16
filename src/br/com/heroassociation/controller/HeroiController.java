@@ -25,8 +25,6 @@ public class HeroiController {
 
     public Heroi Delete(Heroi heroi) { return daoH.Delete(heroi); }
 
-    public List<Heroi> Listar (Heroi heroi) throws SQLException, ClassNotFoundException {
-        return daoH.Listar(heroi);
-    }
+    public List<Heroi> Listar (Heroi heroi) { return daoH.Listar(heroi); }
 
 }

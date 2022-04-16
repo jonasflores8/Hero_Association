@@ -1,8 +1,10 @@
 package br.com.heroassociation.util;
 
+import javax.swing.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.SQLSyntaxErrorException;
 
 public class Conexao {
     public Connection getConnection() throws SQLException, ClassNotFoundException {
@@ -12,8 +14,11 @@ public class Conexao {
             String usuario = "root";
             String senha = "123456";
             return DriverManager.getConnection(url,usuario,senha);
+        } catch (SQLSyntaxErrorException ex){
+            JOptionPane.showMessageDialog(null, ex);
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            JOptionPane.showMessageDialog(null, e);
         }
+        return null;
     }
 }

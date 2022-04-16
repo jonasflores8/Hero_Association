@@ -102,27 +102,32 @@ public class DaoArma {
         return arma;
     }
 
-    public List<Arma> Listar(Arma arma) throws SQLException {
+    public List<Arma> Listar(Arma arma) {
 
         List<Arma> armas = new ArrayList<>();
 
-        String sql = "select a.id, a.nome, a.tipo, herois.nome, herois.id " +
-                "from armas a " +
-                "inner join herois on a.heroiId = herois.id";
+        try{
+            String sql = "select a.id, a.nome, a.tipo, herois.nome, herois.id " +
+                    "from armas a " +
+                    "inner join herois on a.heroiId = herois.id";
 
-        PreparedStatement statement = this.con.prepareStatement(sql);
-        ResultSet rs = statement.executeQuery();
-        while (rs.next()) {
-            Arma a = new Arma(
-                    rs.getInt(1),
-                    rs.getString(2),
-                    rs.getString(3),
-                    new Heroi(rs.getString(4), rs.getInt(5)));
+            PreparedStatement statement = this.con.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                Arma a = new Arma(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        new Heroi(rs.getString(4), rs.getInt(5)));
 
-            armas.add(a);
+                armas.add(a);
+            }
+            rs.close();
+            statement.close();
+        }catch (SQLException e){
+            e.printStackTrace();
         }
-        rs.close();
-        statement.close();
+
         return armas;
     }
 

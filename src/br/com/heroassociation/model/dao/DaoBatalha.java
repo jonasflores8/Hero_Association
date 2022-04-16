@@ -98,25 +98,30 @@ public class DaoBatalha {
         return batalha;
     }
 
-    public List<Batalha> Listar(Batalha batalha) throws SQLException {
+    public List<Batalha> Listar(Batalha batalha) {
 
         List<Batalha> batalhas = new ArrayList<>();
 
-        String sql = "select * from batalhas";
+        try{
+            String sql = "select * from batalhas";
 
-        PreparedStatement statement = this.con.prepareStatement(sql);
-        ResultSet rs = statement.executeQuery();
-        while (rs.next()) {
-            Batalha b = new Batalha(
-                    rs.getInt(1),
-                    rs.getString(2),
-                    rs.getString(3),
-                    rs.getFloat(4));
+            PreparedStatement statement = this.con.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                Batalha b = new Batalha(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getFloat(4));
 
-            batalhas.add(b);
+                batalhas.add(b);
+            }
+            rs.close();
+            statement.close();
+        }catch (SQLException e){
+            e.printStackTrace();
         }
-        rs.close();
-        statement.close();
+
         return batalhas;
     }
 

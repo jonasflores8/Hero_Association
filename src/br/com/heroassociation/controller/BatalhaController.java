@@ -25,8 +25,6 @@ public class BatalhaController {
 
     public Batalha Delete(Batalha batalha) { return daoB.Delete(batalha); }
 
-    public List<Batalha> Listar (Batalha batalha) throws SQLException, ClassNotFoundException {
-        return daoB.Listar(batalha);
-    }
+    public List<Batalha> Listar (Batalha batalha) { return daoB.Listar(batalha); }
 
 }

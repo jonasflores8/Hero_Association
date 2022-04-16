@@ -95,24 +95,29 @@ public class DaoHeroi {
         return heroi;
     }
 
-    public List<Heroi> Listar(Heroi heroi) throws SQLException {
+    public List<Heroi> Listar(Heroi heroi) {
 
         List<Heroi> herois = new ArrayList<>();
 
-        String sql = "select * from herois";
+        try {
+            String sql = "select * from herois";
 
-        PreparedStatement statement = this.con.prepareStatement(sql);
-        ResultSet rs = statement.executeQuery();
-        while (rs.next()) {
-            Heroi h = new Heroi(
-                    rs.getInt(1),
-                    rs.getString(2),
-                    rs.getString(3));
+            PreparedStatement statement = this.con.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                Heroi h = new Heroi(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3));
 
-            herois.add(h);
+                herois.add(h);
+            }
+            rs.close();
+            statement.close();
+        }catch (SQLException e){
+            e.printStackTrace();
         }
-        rs.close();
-        statement.close();
+
         return herois;
     }
 

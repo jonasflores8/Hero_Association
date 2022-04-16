@@ -25,7 +25,7 @@ public class ArmaController {
 
     public Arma Delete(Arma arma) { return daoA.Delete(arma); }
 
-    public List<Arma> Listar (Arma arma) throws SQLException, ClassNotFoundException {
+    public List<Arma> Listar (Arma arma) {
         return daoA.Listar(arma);
     }
 

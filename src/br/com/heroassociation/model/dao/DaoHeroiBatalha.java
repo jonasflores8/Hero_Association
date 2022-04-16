@@ -100,27 +100,32 @@ public class DaoHeroiBatalha {
         return HeroiBatalha;
     }
 
-    public List<HeroiBatalha> Listar(HeroiBatalha heroiBatalha) throws SQLException {
+    public List<HeroiBatalha> Listar(HeroiBatalha heroiBatalha) {
 
         List<HeroiBatalha> heroisBatalhas = new ArrayList<>();
 
-        String sql = "select hb.id, h.nome as 'Heroi', b.nome as 'Batalha', b.descricao as 'Descricao' " +
-                "from heroisbatalhas hb " +
-                "inner join herois h on hb.heroiId = h.id " +
-                "inner join batalhas b on hb.batalhaId = b.id";
+        try{
+            String sql = "select hb.id, h.nome as 'Heroi', b.nome as 'Batalha', b.descricao as 'Descricao' " +
+                    "from heroisbatalhas hb " +
+                    "inner join herois h on hb.heroiId = h.id " +
+                    "inner join batalhas b on hb.batalhaId = b.id";
 
-        PreparedStatement statement = this.con.prepareStatement(sql);
-        ResultSet rs = statement.executeQuery();
-        while (rs.next()) {
-            HeroiBatalha hb = new HeroiBatalha(
-                    rs.getInt(1),
-                    new Heroi(rs.getString(2)),
-                    new Batalha(rs.getString(3), rs.getString(4)));
+            PreparedStatement statement = this.con.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                HeroiBatalha hb = new HeroiBatalha(
+                        rs.getInt(1),
+                        new Heroi(rs.getString(2)),
+                        new Batalha(rs.getString(3), rs.getString(4)));
 
-            heroisBatalhas.add(hb);
+                heroisBatalhas.add(hb);
+            }
+            rs.close();
+            statement.close();
+        }catch (SQLException e){
+            e.printStackTrace();
         }
-        rs.close();
-        statement.close();
+
         return heroisBatalhas;
     }
 

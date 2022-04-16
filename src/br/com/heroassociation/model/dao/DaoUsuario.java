@@ -107,26 +107,30 @@ public class DaoUsuario {
         return usu;
     }
 
-    public List<Usuario> Listar(Usuario usuEnt) throws SQLException{
+    public List<Usuario> Listar(Usuario usuEnt) {
 
         List<Usuario> usus = new ArrayList<>();
+        try{
+            String sql = "select * from usuarios";
 
-        String sql = "select * from usuarios";
-
-        PreparedStatement stmt = this.con.prepareStatement(sql);
-        ResultSet rs = stmt.executeQuery();
-        while (rs.next()) {
-            Usuario usu = new Usuario(
-                    rs.getInt(1),
-                    rs.getString(2),
-                    rs.getString(3),
-                    rs.getString(4),
-                    rs.getString(5)
-            );
-            usus.add(usu);
+            PreparedStatement stmt = this.con.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                Usuario usu = new Usuario(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5)
+                );
+                usus.add(usu);
+            }
+            rs.close();
+            stmt.close();
+        }catch (SQLException e){
+            e.printStackTrace();
         }
-        rs.close();
-        stmt.close();
+
         return usus;
     }
 
@@ -154,7 +158,7 @@ public class DaoUsuario {
             usu = usuSaida;
             JOptionPane.showMessageDialog(null, "Validando Usuario...");
         } catch (SQLException e){
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, e);
         }
         return usu;
     }
