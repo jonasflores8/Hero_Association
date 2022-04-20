@@ -39,6 +39,7 @@ public class DaoUsuario {
             stmt.close();
         }catch (SQLException e){
             e.printStackTrace();
+            return null;
         }
         return usu;
     }
@@ -66,6 +67,7 @@ public class DaoUsuario {
             usu = retorno;
         }catch (SQLException e){
             e.printStackTrace();
+            return null;
         }
         return usu;
     }
@@ -86,6 +88,7 @@ public class DaoUsuario {
             stmt.close();
         }catch (SQLException e){
             e.printStackTrace();
+            return null;
         }
         return usu;
     }
@@ -103,6 +106,7 @@ public class DaoUsuario {
             con.close();
         }catch (SQLException e){
             e.printStackTrace();
+            return null;
         }
         return usu;
     }
@@ -129,6 +133,7 @@ public class DaoUsuario {
             stmt.close();
         }catch (SQLException e){
             e.printStackTrace();
+            return null;
         }
 
         return usus;
@@ -157,10 +162,11 @@ public class DaoUsuario {
             stmt.close();
             usu = usuSaida;
             JOptionPane.showMessageDialog(null, "Validando Usuario...");
+            return usu;
         } catch (SQLException e){
-            JOptionPane.showMessageDialog(null, e);
+            e.printStackTrace();
+            return null;
         }
-        return usu;
     }
 
 }

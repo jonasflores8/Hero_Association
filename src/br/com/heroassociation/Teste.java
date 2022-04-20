@@ -3,19 +3,15 @@ package br.com.heroassociation;
 import br.com.heroassociation.view.*;
 import javax.swing.*;
 import java.sql.SQLException;
-import java.sql.SQLSyntaxErrorException;
 
 public class Teste {
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        try{
-            if(ViewUsuario.Validar()) {
-                Menu();
-            } else {
-                JOptionPane.showMessageDialog(null,"Usuario Inválido!");
-            }
-        }catch (SQLSyntaxErrorException e){
-            JOptionPane.showMessageDialog(null, e);
+
+        if(ViewUsuario.Validar()) {
+            Menu();
+        } else {
+            JOptionPane.showMessageDialog(null,"Usuario Inválido!");
         }
 
     }

@@ -34,6 +34,7 @@ public class DaoHeroiBatalha {
             statement.close();
         }catch (SQLException e){
             e.printStackTrace();
+            return null;
         }
         return heroiBatalha;
     }
@@ -61,6 +62,7 @@ public class DaoHeroiBatalha {
             statement.close();
         }catch (SQLException e){
             e.printStackTrace();
+            return null;
         }
         return HeroiBatalha;
     }
@@ -79,6 +81,7 @@ public class DaoHeroiBatalha {
             statement.close();
         }catch (SQLException e){
             e.printStackTrace();
+            return null;
         }
         return heroiBatalha;
     }
@@ -96,6 +99,7 @@ public class DaoHeroiBatalha {
             con.close();
         }catch (SQLException e){
             e.printStackTrace();
+            return null;
         }
         return HeroiBatalha;
     }
@@ -124,6 +128,7 @@ public class DaoHeroiBatalha {
             statement.close();
         }catch (SQLException e){
             e.printStackTrace();
+            return null;
         }
 
         return heroisBatalhas;

@@ -8,6 +8,14 @@ public class Arma {
     private Heroi heroi;
     private int heroiId;
 
+    public Arma() {
+
+    }
+
+    public Arma(int id) {
+        this.id = id;
+    }
+
     public Arma(String nome, String tipo, int heroiId) {
         this.nome = nome;
         this.tipo = tipo;
@@ -21,19 +29,11 @@ public class Arma {
         this.heroi = heroi;
     }
 
-    public Arma(int id) {
-        this.id = id;
-    }
-
     public Arma(int id, String nome, String tipo, int heroiId) {
         this.id = id;
         this.nome = nome;
         this.tipo = tipo;
         this.heroiId = heroiId;
-    }
-
-    public Arma() {
-
     }
 
     public Heroi getHeroi() {
@@ -82,21 +82,21 @@ public class Arma {
         String msg;
         if(this.heroi != null) {
             msgHeroi = "Arma{" +
-                    "id=" + id +
-                    ", nome='" + nome + '\'' +
-                    ", tipo='" + tipo + '\'' +
-                    ", heroi=" + heroi.getNome() +
-                    ", heroiId=" + heroi.getId() +
+                    "id: " + id +
+                    ", Nome: " + nome +
+                    ", Tipo: " + tipo +
+                    ", Heroi: " + heroi.getNome() +
+                    ", HeroiId: " + heroi.getId() +
                     '}';
             retorno = msgHeroi;
         }
         if(this.heroi == null){
             heroiNull = "Arma{" +
-                    "id=" + id +
-                    ", nome='" + nome + '\'' +
-                    ", tipo='" + tipo + '\'' +
-                    ", heroi='" + heroi + '\'' +
-                    ", heroiId='" + heroiId + '\'' +
+                    "id: " + id +
+                    ", Nome: " + nome +
+                    ", Tipo: " + tipo +
+                    //", heroi: " + heroi +
+                    ", HeroiId: " + heroiId +
                     '}';
             retorno = heroiNull;
         }

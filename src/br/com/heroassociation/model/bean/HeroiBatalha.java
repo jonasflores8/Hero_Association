@@ -12,6 +12,10 @@ public class HeroiBatalha {
 
     }
 
+    public HeroiBatalha(int id) {
+        this.id = id;
+    }
+
     public HeroiBatalha(int heroiId, int batalhaId) {
         this.heroiId = heroiId;
         this.batalhaId = batalhaId;
@@ -21,10 +25,6 @@ public class HeroiBatalha {
         this.id = id;
         this.heroi = heroi;
         this.batalha = batalha;
-    }
-
-    public HeroiBatalha(int id) {
-        this.id = id;
     }
 
     public HeroiBatalha(int id, int heroiId, int batalhaId) {
@@ -80,19 +80,19 @@ public class HeroiBatalha {
         String hbNull = "null";
         if(this.heroi == null & this.batalha == null){
             hbNull = "HeroiBatalha{" +
-                    "id=" + id +
-                    ", heroiId=" + heroiId +
-                    ", batalhaId=" + batalhaId +
-                    ", heroi=" + heroi +
-                    ", batalha=" + batalha +
+                    "id: " + id +
+                    ", HeroiId: " + heroiId +
+                    ", BatalhaId: " + batalhaId +
+                    //", Heroi: " + heroi +
+                    //", Batalha: " + batalha +
                     '}';
             retorno = hbNull;
         }
         if (this.heroi != null & this.batalha != null){
             heroiHb = "HeroiBatalha{" +
-                    "id=" + id +
-                    ", heroi=" + heroi.getNome() +
-                    ", batalha=" + batalha.getNome() + ", descrição =" + batalha.getDescricao() +
+                    "id: " + id +
+                    ", Heroi: " + heroi.getNome() +
+                    ", Batalha: " + batalha.getNome() + ", Descrição: " + batalha.getDescricao() +
                     '}';
             retorno = heroiHb;
         }

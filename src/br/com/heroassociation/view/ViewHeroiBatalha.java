@@ -31,7 +31,7 @@ public class ViewHeroiBatalha {
 
     public static void Update() throws SQLException, ClassNotFoundException {
         int id = Integer.parseInt(JOptionPane.showInputDialog("Id"));
-        int heroiId = Integer.parseInt(JOptionPane.showInputDialog("Id do heroi"));
+        int heroiId = Integer.parseInt(JOptionPane.showInputDialog("Id do Heroi"));
         int batalhaId = Integer.parseInt(JOptionPane.showInputDialog("Id da Batalha"));
 
         HeroiBatalha HbEntrada = new HeroiBatalha(id, heroiId, batalhaId);

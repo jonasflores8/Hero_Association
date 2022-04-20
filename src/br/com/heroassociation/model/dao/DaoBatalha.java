@@ -33,6 +33,7 @@ public class DaoBatalha {
             statement.close();
         }catch (SQLException e){
             e.printStackTrace();
+            return null;
         }
         return batalha;
     }
@@ -57,6 +58,7 @@ public class DaoBatalha {
             statement.close();
         }catch (SQLException e){
             e.printStackTrace();
+            return null;
         }
         return batalha;
     }
@@ -77,6 +79,7 @@ public class DaoBatalha {
             statement.close();
         }catch (SQLException e){
             e.printStackTrace();
+            return null;
         }
         return batalha;
     }
@@ -94,6 +97,7 @@ public class DaoBatalha {
             con.close();
         }catch (SQLException e){
             e.printStackTrace();
+            return null;
         }
         return batalha;
     }
@@ -120,6 +124,7 @@ public class DaoBatalha {
             statement.close();
         }catch (SQLException e){
             e.printStackTrace();
+            return null;
         }
 
         return batalhas;

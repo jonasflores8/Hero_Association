@@ -14,11 +14,12 @@ public class Conexao {
             String usuario = "root";
             String senha = "123456";
             return DriverManager.getConnection(url,usuario,senha);
-        } catch (SQLSyntaxErrorException ex){
-            JOptionPane.showMessageDialog(null, ex);
+        } catch (SQLSyntaxErrorException se){
+            JOptionPane.showMessageDialog(null, se);
+            return null;
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
+            return null;
         }
-        return null;
     }
 }

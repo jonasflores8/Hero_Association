@@ -8,12 +8,12 @@ public class Usuario {
     private String status;
     private String tipo;
 
-    public Usuario(int id) {
-        this.id = id;
+    public Usuario() {
+
     }
 
-    public Usuario(String login) {
-        this.login = login;
+    public Usuario(int id) {
+        this.id = id;
     }
 
     public Usuario(String login, String senha) {
@@ -34,10 +34,6 @@ public class Usuario {
         this.senha = senha;
         this.status = status;
         this.tipo = tipo;
-    }
-
-    public Usuario() {
-
     }
 
     public int getId() {
@@ -83,11 +79,11 @@ public class Usuario {
     @Override
     public String toString() {
         return "Usuario{" +
-                "id=" + id +
-                ", login='" + login + '\'' +
-                ", senha='" + senha + '\'' +
-                ", status='" + status + '\'' +
-                ", tipo='" + tipo + '\'' +
+                "id: " + id +
+                ", Login: " + login +
+                ", Senha: " + senha +
+                ", Status: " + status +
+                ", Tipo: " + tipo +
                 '}';
     }
 

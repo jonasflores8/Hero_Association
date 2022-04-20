@@ -7,15 +7,17 @@ public class Batalha {
     private String descricao;
     private float duracao;
 
+    public Batalha() {
+
+    }
+
     public Batalha(int id) {
         this.id = id;
     }
 
-    public Batalha(int id, String nome, String descricao, float duracao) {
-        this.id = id;
+    public Batalha(String nome, String descricao) {
         this.nome = nome;
         this.descricao = descricao;
-        this.duracao = duracao;
     }
 
     public Batalha(String nome, String descricao, float duracao) {
@@ -24,13 +26,11 @@ public class Batalha {
         this.duracao = duracao;
     }
 
-    public Batalha(String nome, String descricao) {
+    public Batalha(int id, String nome, String descricao, float duracao) {
+        this.id = id;
         this.nome = nome;
         this.descricao = descricao;
-    }
-
-    public Batalha() {
-
+        this.duracao = duracao;
     }
 
     public int getId() {
@@ -68,10 +68,10 @@ public class Batalha {
     @Override
     public String toString() {
         return "Batalha{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", descricao='" + descricao + '\'' +
-                ", duracao=" + duracao +
+                "id: " + id +
+                ", Nome: " + nome +
+                ", Descricao: " + descricao +
+                ", Duracao: " + duracao +
                 '}';
     }
 

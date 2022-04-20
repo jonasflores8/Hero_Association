@@ -6,6 +6,10 @@ public class Heroi {
     private String nome;
     private String identidade;
 
+    public Heroi() {
+
+    }
+
     public Heroi(int id) {
         this.id = id;
     }
@@ -28,10 +32,6 @@ public class Heroi {
     public Heroi(String nome, int id) {
         this.nome = nome;
         this.id = id;
-    }
-
-    public Heroi() {
-
     }
 
     public int getId() {
@@ -59,9 +59,9 @@ public class Heroi {
     @Override
     public String toString() {
         return "Heroi{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", identidade='" + identidade + '\'' +
+                "id: " + id +
+                ", Nome: " + nome +
+                ", Identidade: " + identidade +
                 '}';
     }
 

@@ -45,3 +45,26 @@ CREATE TABLE HeroisBatalhas (
 );
 
 INSERT INTO usuarios (login, senha, status, tipo) VALUES ('jonas', 'xxx', '1', 'adm');
+INSERT INTO usuarios (login, senha, status, tipo) VALUES ('sara', '1234', '1', 'visitante');
+
+INSERT INTO herois (nome, identidade) VALUES ('Thor', 'sem');
+INSERT INTO herois (nome, identidade) VALUES ('Batman', 'Bruce Wayne');
+INSERT INTO herois (nome, identidade) VALUES ('Spiderman', 'Peter Parker');
+INSERT INTO herois (nome, identidade) VALUES ('Superman', 'Clark Kent');
+
+INSERT INTO armas (nome, tipo, heroiId) VALUES ('Stormbreaker', 'Machado', 1);
+INSERT INTO armas (nome, tipo, heroiId) VALUES ('Mijolnir', 'Martelo', 1);
+INSERT INTO armas (nome, tipo, heroiId) VALUES ('Lançador de teia', 'Lançador', 3);
+INSERT INTO armas (nome, tipo, heroiId) VALUES ('Cinto de utilidades', 'Cinto', 2);
+
+INSERT INTO batalhas (nome, descricao, duracao) VALUES ('Ultimato', 'Thor vs Thanos', 30);
+INSERT INTO batalhas (nome, descricao, duracao) VALUES ('Ultimato', 'Spiderman vs Thanos', 30);
+INSERT INTO batalhas (nome, descricao, duracao) VALUES ('Liga da Justiça', 'Batman vs Superman', 10);
+
+INSERT INTO heroisbatalhas (heroiId, batalhaId) VALUES (1, 1);
+INSERT INTO heroisbatalhas (heroiId, batalhaId) VALUES (3, 2);
+INSERT INTO heroisbatalhas (heroiId, batalhaId) VALUES (2, 3);
+INSERT INTO heroisbatalhas (heroiId, batalhaId) VALUES (4, 3);
+
+
+

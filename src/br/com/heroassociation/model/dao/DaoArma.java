@@ -34,6 +34,7 @@ public class DaoArma {
             statement.close();
         }catch (SQLException e){
             e.printStackTrace();
+            return null;
         }
         return arma;
     }
@@ -62,6 +63,7 @@ public class DaoArma {
             statement.close();
         }catch (SQLException e){
             e.printStackTrace();
+            return null;
         }
         return arma;
     }
@@ -81,6 +83,7 @@ public class DaoArma {
             statement.close();
         }catch (SQLException e){
             e.printStackTrace();
+            return null;
         }
         return arma;
     }
@@ -98,6 +101,7 @@ public class DaoArma {
             con.close();
         }catch (SQLException e){
             e.printStackTrace();
+            return null;
         }
         return arma;
     }
@@ -126,6 +130,7 @@ public class DaoArma {
             statement.close();
         }catch (SQLException e){
             e.printStackTrace();
+            return null;
         }
 
         return armas;

@@ -1,3 +1,4 @@
+select * from usuarios;
 select * from herois;
 select * from armas;
 select * from batalhas;

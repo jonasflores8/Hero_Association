@@ -36,7 +36,7 @@ public class UsuarioController {
     public Boolean Validar (Usuario u) {
         boolean validado = false;
         Usuario usuSaida = daoUsu.Validar(u);
-        if(usuSaida.getLogin().equals("jonas") & usuSaida.getSenha().equals("xxx")) {
+        if(usuSaida != null) {
             validado = true;
         }
         return validado;
