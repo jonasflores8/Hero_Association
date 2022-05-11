@@ -8,9 +8,7 @@ public class Arma {
     private Heroi heroi;
     private int heroiId;
 
-    public Arma() {
-
-    }
+    public Arma() { }
 
     public Arma(int id) {
         this.id = id;
@@ -86,7 +84,6 @@ public class Arma {
                     ", Nome: " + nome +
                     ", Tipo: " + tipo +
                     ", Heroi: " + heroi.getNome() +
-                    ", HeroiId: " + heroi.getId() +
                     '}';
             retorno = msgHeroi;
         }
@@ -95,7 +92,6 @@ public class Arma {
                     "id: " + id +
                     ", Nome: " + nome +
                     ", Tipo: " + tipo +
-                    //", heroi: " + heroi +
                     ", HeroiId: " + heroiId +
                     '}';
             retorno = heroiNull;

@@ -2,6 +2,7 @@ package br.com.heroassociation.view;
 
 import br.com.heroassociation.controller.ArmaController;
 import br.com.heroassociation.model.bean.Arma;
+
 import javax.swing.*;
 import java.sql.SQLException;
 import java.util.List;
@@ -15,19 +16,19 @@ public class ViewArma {
         String tipo = JOptionPane.showInputDialog("Tipo de Arma");
         int heroiId = Integer.parseInt(JOptionPane.showInputDialog("Id do Heroi"));
 
-        Arma arma = new Arma(nome,tipo,heroiId);
+        Arma arma = new Arma(nome,tipo, heroiId);
         contA = new ArmaController();
         Arma aSaida = contA.Insert(arma);
         JOptionPane.showMessageDialog(null,"" + aSaida.toString());
     }
 
     public static void Select() throws SQLException, ClassNotFoundException {
-            int id = Integer.parseInt(JOptionPane.showInputDialog("Id da Arma"));
+        int id = Integer.parseInt(JOptionPane.showInputDialog("Id da Arma"));
 
-            Arma aEntrada = new Arma(id);
-            contA = new ArmaController();
-            Arma aSaida = contA.Select(aEntrada);
-            JOptionPane.showMessageDialog(null,"" + aSaida.toString());
+        Arma aEntrada = new Arma(id);
+        contA = new ArmaController();
+        Arma aSaida = contA.Select(aEntrada);
+        JOptionPane.showMessageDialog(null,"" + aSaida.toString());
     }
 
     public static void Update() throws SQLException, ClassNotFoundException {

@@ -3,6 +3,7 @@ package br.com.heroassociation.model.dao;
 import br.com.heroassociation.model.bean.Arma;
 import br.com.heroassociation.model.bean.Heroi;
 import br.com.heroassociation.util.Conexao;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,14 +42,14 @@ public class DaoArma {
 
     public Arma Select(Arma arma) {
         try {
-            String sql = "select a.id, a.nome, a.tipo, herois.nome, herois.id " +
+            String sql = "select a.id, a.nome, a.tipo, h.nome " +
                     "from armas a " +
-                    "inner join herois " +
-                    "on a.heroiId = herois.id " +
-                    "where a.id = ?";
+                    "inner join herois h " +
+                    "on a.heroiId = h.id " +
+                    "where a.id = ? ";
             PreparedStatement statement = this.con.prepareStatement(sql);
 
-            statement.setInt(1,arma.getId());
+            statement.setString(1, String.valueOf(arma.getId()));
 
             ResultSet rs = statement.executeQuery();
             Arma retorno = null;
@@ -57,7 +58,7 @@ public class DaoArma {
                         rs.getInt(1),
                         rs.getString(2),
                         rs.getString(3),
-                        new Heroi(rs.getString(4), rs.getInt(5)));
+                        new Heroi(rs.getString(4)));
             }
             arma = retorno;
             statement.close();
@@ -77,7 +78,7 @@ public class DaoArma {
             statement.setString(1,arma.getNome());
             statement.setString(2,arma.getTipo());
             statement.setInt(3, arma.getHeroiId());
-            statement.setInt(4, arma.getId());
+            statement.setString(4, String.valueOf(arma.getId()));
 
             statement.executeUpdate();
             statement.close();
@@ -111,9 +112,9 @@ public class DaoArma {
         List<Arma> armas = new ArrayList<>();
 
         try{
-            String sql = "select a.id, a.nome, a.tipo, herois.nome, herois.id " +
+            String sql = "select a.id, a.nome as 'Arma', a.tipo, herois.nome as 'Herois' " +
                     "from armas a " +
-                    "inner join herois on a.heroiId = herois.id";
+                    "inner join herois on a.heroiId = herois.id ";
 
             PreparedStatement statement = this.con.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
@@ -122,7 +123,7 @@ public class DaoArma {
                         rs.getInt(1),
                         rs.getString(2),
                         rs.getString(3),
-                        new Heroi(rs.getString(4), rs.getInt(5)));
+                        new Heroi(rs.getString(4)));
 
                 armas.add(a);
             }

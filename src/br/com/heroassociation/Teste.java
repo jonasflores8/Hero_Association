@@ -11,7 +11,7 @@ public class Teste {
         if(ViewUsuario.Validar()) {
             Menu();
         } else {
-            JOptionPane.showMessageDialog(null,"Usuario Inválido!");
+            JOptionPane.showMessageDialog(null,"Finalizado!");
         }
 
     }

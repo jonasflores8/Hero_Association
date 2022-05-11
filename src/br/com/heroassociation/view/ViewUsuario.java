@@ -64,10 +64,19 @@ public class ViewUsuario {
     public static boolean Validar () throws SQLException, ClassNotFoundException {
         boolean validado = false;
         String login = JOptionPane.showInputDialog("Login");
-        String senha = JOptionPane.showInputDialog("Senha");
-        Usuario usuEntrada = new Usuario(login, senha);
-        UsuarioController contUsu = new UsuarioController();
-        validado = contUsu.Validar(usuEntrada);
+        try{
+            if(login == null)
+                JOptionPane.showMessageDialog(null, "Cancelado");
+            else {
+                String senha = JOptionPane.showInputDialog("Senha");
+                Usuario usuEntrada = new Usuario(login, senha);
+                UsuarioController contUsu = new UsuarioController();
+                validado = contUsu.Validar(usuEntrada);
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+
         return validado;
     }
 

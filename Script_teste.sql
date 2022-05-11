@@ -4,7 +4,7 @@ select * from armas;
 select * from batalhas;
 select * from heroisbatalhas;
 
-select a.id, a.nome, a.tipo, herois.nome, herois.id 
+select a.id, a.nome as 'Arma', a.tipo, herois.nome as 'Herois'
 from armas a 
 inner join herois on a.heroiId = herois.id; 
 
